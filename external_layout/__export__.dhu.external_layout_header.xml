@@ -1,0 +1,82 @@
+<data>
+  <xpath expr="//div[@class='header']" position="replace">
+    <div class="header">
+      <style>
+        .black-triangle:after {
+          content: "";
+          position: absolute;
+          border-bottom: 0.40cm solid;
+          border-left: 0.40cm solid #53AF2E;
+          border-top: 0 solid transparent;
+          margin-top: 129px;
+        }
+        .white-triangle:after {
+          content: "";
+          position: absolute;
+          border-bottom: 0.40cm solid white;
+          border-left: 0.40cm solid;
+          border-top: 0 solid transparent;
+          margin-top: 17px;
+        }
+        .NeoSanspro_font {
+          font-family: 'NeoSanspro', 'sans-serif' !important;
+        }
+      </style>
+      <div class="row NeoSanspro_font" style="font-size:12px;">
+        <div class="col-xs-1" style="margin-left:-15px;">
+          <div class="black-triangle" style="height:130px;width:15px;background-color:#53AF2E;"></div>
+          <div class="white-triangle" style="margin-top:13px;height:20px;width:15px;background-color:black;"></div>
+        </div>
+        <div class="col-xs-6" style="margin-left:-25px;margin-top:25px;">
+          <div class="row">
+            <div class="col-xs-7 mb8">
+              <strong><span t-field="company.name"/></strong><br/>
+              <span t-field="company.street"/><br/>
+              <span t-field="company.street2"/><br/>
+              <span t-field="company.city"/>,
+              <span t-field="company.country_id"/>
+            </div>
+            <div class="col-xs-5 mb8">
+              <table width="80%">
+                <tr>
+                  <td>P</td>
+                  <td><span style="padding-left:5px;" t-field="company.phone"/></td>
+                </tr>
+                <tr>
+                  <td>@</td>
+                  <td><span style="padding-left:5px;" t-field="company.email"/></td>
+                </tr>
+                <tr style="font-weight:bold;">
+                  <td>Web:</td>
+                  <td><span style="padding-left:5px;" t-field="company.website"/></td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <div class="row mt32" style="font-size:12px;">
+            <div class="col-xs-11">
+
+              <strong><span t-field="company.name"/></strong>
+              <img src="/x_web/static/src/img/middle_image.png" style="max-height:5px;"/>
+              <span t-field="company.street"/><br/>
+              <span t-field="company.street2"/>
+              <img src="/x_web/static/src/img/middle_image.png" style="max-height:5px;"/>
+              <span t-field="company.city"/>
+              ,
+              <span t-field="company.country_id"/>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-5 text-right" style="margin-top:25px;">
+          <t t-if="company.id == 4">
+            <img t-if="company.logo" t-att-src="'data:image/png;base64,%s' % company.logo" style="max-height: 150px;margin-top:-25px;"/>
+          </t>
+          <t t-else="">
+            <img t-if="company.logo" t-att-src="'data:image/png;base64,%s' % company.logo" style="max-height: 100px;"/>
+          </t>
+        </div>
+        <!--<div name="company_address"/>-->
+      </div>
+    </div>
+  </xpath>
+</data>

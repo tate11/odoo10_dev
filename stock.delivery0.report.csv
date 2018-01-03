@@ -1,0 +1,2 @@
+id,help,type,usage,auto,report_rml,model,name,multi,paperformat_id/id,parser,print_report_name,report_rml_content,report_rml_content_data,attachment_use,report_file,report_type,report_sxw_content_data,attachment,report_name,report_xml,report_xsl
+stock.action_report_delivery0,,ir.actions.report.xml,,TRUE,stock.report_delivery0,stock.picking,Delivery(0),FALSE,,,,,,FALSE,stock.report_delivery0,PDF,,,stock.report_delivery0,,

@@ -1,0 +1,49 @@
+<data>
+
+  <div class="page" position="inside">
+    <style>
+      @font-face {
+        font-family: 'NeoSanspro';
+        src: url("/x_web/content/NeoSanspro.ttf") format('truetype');
+      }
+    </style>
+  </div>
+
+  <div class="page" position="attributes">
+    <attribute name="style">padding-left:9mm;padding-right:9mm;</attribute>
+  </div>
+
+  <xpath expr="//table[1]/thead/tr/th[1]" position="before">
+    <th>
+      <strong>Product</strong>
+    </th>
+  </xpath>
+
+  <xpath expr="//table[1]/tbody/tr/td[1]" position="replace">
+    <td>
+      <span t-field="line.name"/><br/>
+      Line Reference:
+      <span t-field="line.x_reference"/>
+    </td>
+  </xpath>
+
+  <xpath expr="//table[1]/tbody/tr/td[1]" position="before">
+    <td><span t-field="line.product_id.name"/></td>
+  </xpath>
+  <xpath expr="//table[1]/thead/tr/th[2]" position="before">
+    <th>
+      <strong>Requested Date</strong>
+    </th>
+  </xpath>
+  <xpath expr="//table[1]/tbody/tr/td[2]" position="before">
+    <td><span t-field="line.x_requested_date"/></td>
+  </xpath>
+  <xpath expr="//table[1]/thead/tr/th[3]" position="before">
+    <th>
+      <strong>Original Requested Date</strong>
+    </th>
+  </xpath>
+  <xpath expr="//table[1]/tbody/tr/td[3]" position="before">
+    <td><span t-field="line.x_original_requested_date"/></td>
+  </xpath>
+</data>

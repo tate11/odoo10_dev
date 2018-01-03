@@ -1,0 +1,84 @@
+id,arch_fs,field_parent,groups_id/id,inherit_id/id,key,model,priority,arch_base,name,type
+stock.report_picking0,,,,,stock.report_picking0,,16,"<?xml version=""1.0""?>
+<t t-name=""stock.report_picking0"">
+  <t t-call=""report.html_container"">
+    <t t-foreach=""docs"" t-as=""o"">
+      <div class=""page"">
+        <style>
+          .monospace {
+            font-family: Menlo, Monaco, Consolas, ""DejaVu Sans Mono"", monospace !important;
+          }
+          .row {
+            min-height: 36px;
+          }
+        </style>
+        <div class=""row"">
+          <h4 class=""monospace col-xs-3 pull-right"" style=""padding-left: 3em;"">
+            <span t-field=""o.origin""/></h4>
+        </div>
+        <div class=""row"">
+          <h4 t-field=""o.name"" class=""monospace col-xs-3 pull-right"" style=""padding-left: 3em;""/>
+        </div>
+
+        <div class=""row"" style=""padding-left: 6em; padding-bottom: 76px;"">
+          <span t-field=""o.location_dest_id"" class=""col-xs-3""/>
+        </div>
+
+        <t t-set=""has_serial_number"" t-value=""o.pack_operation_ids.filtered('pack_lot_ids')"" groups=""stock.group_production_lot""/>
+
+        <t t-set=""pack_operation_ids"" t-value=""o.pack_operation_ids""/>
+        <t groups=""base.group_portal"" t-set=""pack_operation_ids"" t-value=""o.pack_operation_ids.sudo()""/>
+
+        <t t-foreach=""pack_operation_ids"" t-as=""pack_operation"">
+
+          <div class=""row"" style=""padding-left: 3em; "">
+            <div class=""col-xs-9"">
+              [<span t-field=""pack_operation.product_id.default_code"" class=""monospace""/>]
+              <span t-field=""pack_operation.product_id.name""/>
+            </div>
+
+            <div class=""col-xs-3 text-right"" style=""padding-right: 3em;"">
+              <span t-field=""pack_operation.product_qty"" class=""monospace""/>
+              <span t-field=""pack_operation.product_uom_id"" groups=""product.group_uom""/>
+            </div>
+
+          </div>
+
+          <t t-if=""has_serial_number"">
+            <t t-if=""pack_operation.pack_lot_ids"">
+              <div class=""row"" style=""padding-left: 3em; "" t-foreach=""pack_operation.pack_lot_ids"" t-as=""packlot"">
+                <div class=""col-xs-3"">
+                  <span t-field=""packlot.lot_id""/>
+                  <t t-if=""not packlot.lot_id"">
+                    <span t-field=""packlot.lot_name""/>
+                  </t>
+                </div>
+                <div class=""col-xs-3"">
+                  <span t-field=""packlot.qty""/>
+                  <t t-if=""o.picking_type_id.use_existing_lots and o.state!='done'"">
+                    /
+                    <span t-field=""packlot.qty_todo""/></t>
+                </div>
+              </div>
+            </t>
+          </t>
+
+        </t>
+        <div class=""row"" style=""padding-left: 3em; "">
+          <span class=""col-xs-1 text-right"">Date:</span>
+          <t t-if=""o.state == 'done'"">
+            <span class=""col-xs-4"" t-field=""o.date_done""/>
+          </t>
+          <t t-if=""o.state != 'done'"">
+            <span class=""col-xs-4"" t-field=""o.min_date""/>
+          </t>
+        </div>
+        <p t-if=""o.state in ['draft', 'waiting', 'confirmed']"">
+          You do not have any products reserved for this picking. Please click the 'Reserve' button to check if products are available.
+        </p>
+        <p t-field=""o.note""/>
+      </div>
+    </t>
+  </t>
+</t>
+",report_picking0,QWeb

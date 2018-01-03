@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<data inherit_id="stock.report_delivery_document">
+  <xpath expr="//div[@name='customer_address']" position="after">
+    <div class="row" t-if="o.sale_id.client_order_ref">
+      <div class="col-xs-4 pull-right">
+        <strong>Customer Reference:</strong>
+        <p t-field="o.sale_id.client_order_ref"/>
+      </div>
+    </div>
+  </xpath>
+</data>

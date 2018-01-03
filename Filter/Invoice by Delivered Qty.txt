@@ -1,0 +1,18 @@
+	[
+	u'|', u'|', u'|', u'|', u'|', u'|', u'|', u'|', u'|', u'|', u'|', u'|', u'|', u'|', u'|', 
+	[u'name', u'ilike', u'dso0093'], [u'client_order_ref', u'ilike', u'dso0093'], u'|',
+	[u'name', u'ilike', u'0156'], [u'client_order_ref', u'ilike', u'0156'], u'|',
+	[u'name', u'ilike', u'0158'], [u'client_order_ref', u'ilike', u'0158'], u'|',
+	[u'name', u'ilike', u'0177'], [u'client_order_ref', u'ilike', u'0177'], u'|',
+	[u'name', u'ilike', u'dso0050'], [u'client_order_ref', u'ilike', u'dso0050'], u'|',
+	[u'name', u'ilike', u'dso0070'], [u'client_order_ref', u'ilike', u'dso0070'], u'|',
+	[u'name', u'ilike', u'dso0077'], [u'client_order_ref', u'ilike', u'dso0077'], u'|',
+	[u'name', u'ilike', u'dso0078'], [u'client_order_ref', u'ilike', u'dso0078'], u'|',
+	[u'name', u'ilike', u'dso0098'], [u'client_order_ref', u'ilike', u'dso0098'], u'|',
+	[u'name', u'ilike', u'dso0104'], [u'client_order_ref', u'ilike', u'dso0104'], u'|',
+	[u'name', u'ilike', u'dso0115'], [u'client_order_ref', u'ilike', u'dso0115'], u'|',
+	[u'name', u'ilike', u'dso0141'], [u'client_order_ref', u'ilike', u'dso0141'], u'|',
+	[u'name', u'ilike', u'dso0159'], [u'client_order_ref', u'ilike', u'dso0159'], u'|',
+	[u'name', u'ilike', u'dso0174'], [u'client_order_ref', u'ilike', u'dso0174'], u'|',
+	[u'name', u'ilike', u'dso0155'], [u'client_order_ref', u'ilike', u'dso0155']
+	]
