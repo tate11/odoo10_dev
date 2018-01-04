@@ -10,70 +10,70 @@
           }
           .row {
             min-height: 35px;
+            font-size: larger;
+            padding-left: 3em;
           }
         </style>
         <div class="row">
-          <h4 class="monospace col-xs-3 pull-right" style="padding-left: 3em;">
-            <span t-field="o.origin"/></h4>
-        </div>
-        <div class="row">
-          <h4 t-field="o.name" class="monospace col-xs-3 pull-right" style="padding-left: 3em;"/>
+          <h4 t-field="o.name" class="monospace col-xs-3 pull-right" style="padding-top: 50px;"/>
         </div>
 
-        <div class="row" style="padding-left: 11em; padding-top: 0.5em; padding-bottom: 72px">
-          <div t-if="o.move_lines and o.move_lines[0].partner_id" name="partner_header">
-            <div t-field="o.move_lines[0].partner_id.ref" class="col-xs-3" style="overflow-wrap: break-word;"/>
-          </div>
-          <div t-if="not (o.move_lines and o.move_lines[0].partner_id) and o.partner_id" name="partner_header">
-            <div t-field="o.partner_id.ref" class="col-xs-3" style="overflow-wrap: break-word;"/>
-          </div>
+        <div class="row" style="padding-left: 10em; padding-bottom: 72px; padding-top: 6px;">
+          <span class="monospace col-xs-4">
+            <t t-if="o.partner_id">
+              #<span t-field="o.partner_id.ref"/>
+            </t>
+            <t t-else="">
+              <span t-field="o.location_dest_id"/>
+            </t>
+          </span>
         </div>
 
         <t t-set="backorder" t-value="False"/>
         <t t-set="has_serial_number" t-value="o.pack_operation_ids.filtered('pack_lot_ids')" groups="stock.group_production_lot"/>
 
-        <div class="row" style="padding-left: 5ex;">
-          <div t-if="o.move_lines and o.move_lines[0].partner_id" name="partner_header">
-            <h4 t-field="o.move_lines[0].partner_id" class="col-xs-11" style="overflow-wrap: break-word;"/>
-          </div>
-          <div t-if="not (o.move_lines and o.move_lines[0].partner_id) and o.partner_id" name="partner_header">
-            <h4 t-field="o.partner_id" class="col-xs-11" style="overflow-wrap: break-word;"/>
-          </div>
+        <div t-if="o.partner_id" class="row">
+          <strong><span t-field="o.partner_id" class="col-xs-11"/></strong>
         </div>
 
         <t t-foreach="o.pack_operation_ids" t-as="pack_operation">
-          <div class="row" style="padding-left: 5ex;">
+          <div class="row" style="padding-right: 0.5em;">
             <div class="col-xs-9">
-              [<span t-field="pack_operation.product_id.default_code" class="monospace"/>]
+              <t t-if="pack_operation.product_id.default_code">
+                [<span t-field="pack_operation.product_id.default_code" class="monospace"/>]
+              </t>
               <span t-field="pack_operation.product_id.name"/>
             </div>
-            <div class="col-xs-3 text-right" style="padding-right: 5ex;">
-              <t t-if="pack_operation.state == 'done'">
-                <t t-if="pack_operation.ordered_qty != pack_operation.qty_done">
-                  <t t-set="backorder" t-value="True"/>
-                </t>
-                <span t-field="pack_operation.qty_done" class="monospace"/>
-                <span t-field="pack_operation.product_uom_id"/>
+            <div class="col-xs-3 text-right" t-if="pack_operation.state == 'done'">
+              <t t-if="pack_operation.ordered_qty != pack_operation.qty_done">
+                <t t-set="backorder" t-value="True"/>
               </t>
+              <span t-field="pack_operation.qty_done" class="monospace"/>
+              <span t-field="pack_operation.product_uom_id"/>
             </div>
           </div>
-
         </t>
 
-        <div class="row" style="padding-left: 3em; ">
-          <span class="col-xs-1 text-right">Date:</span>
-          <t t-if="o.state == 'done'">
-            <span class="col-xs-4" t-field="o.date_done"/>
-          </t>
-          <t t-if="o.state != 'done'">
-            <span class="col-xs-4" t-field="o.min_date"/>
-          </t>
+        <div class="row">
+          <span class="col-xs-3">
+            <strong>Date:</strong>
+            <t t-if="o.state == 'done'">
+              <span t-field="o.date_done" t-field-options='{"format": "Y-MM-dd"}'/>
+            </t>
+          </span>
+          <span class="col-xs-5" t-if="o.origin">
+            <strong>Source:</strong>
+            <span t-field="o.origin" class="monospace"/>
+          </span>
+          <span class="col-xs-4" t-if="o.backorder_id">
+            <strong>Backorder of:</strong>
+            <span class="monospace">
+              <t t-esc="o.backorder_id.name"/>
+            </span>
+          </span>
         </div>
 
-        <p t-if="o.backorder_id" style="padding-left: 3em; ">
-          This shipment is a backorder of
-          <t t-esc="o.backorder_id.name"/>.
-        </p>
+        <p t-field="o.note"/>
       </div>
     </t>
   </t>
