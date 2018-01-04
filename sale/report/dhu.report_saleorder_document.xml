@@ -1,0 +1,41 @@
+<data>
+  <!--<xpath expr="//t[@t-as='l']/tr/td[1]" position="replace"> <td><span t-field="l.product_id.name"/></td> </xpath>-->
+
+  <div class="page" position="inside">
+    <style>
+      @font-face {
+        font-family: 'NeoSanspro';
+        src: url("/x_web/content/NeoSanspro.ttf") format('truetype');
+      }
+    </style>
+  </div>
+
+  <xpath expr="//div[@t-if='doc.client_order_ref']" position="after">
+    <div t-if="doc.x_customer_order_no" class="col-xs-1">
+      <strong>Line#</strong>
+      <p t-field="doc.x_customer_order_no"/>
+    </div>
+  </xpath>
+
+  <xpath expr="//div[@t-if='doc.user_id.name']" position="attributes">
+    <attribute name="class">col-xs-2</attribute>
+  </xpath>
+
+  <div class="page" position="attributes">
+    <attribute name="style">padding-left:9mm;padding-right:9mm;</attribute>
+  </div>
+  <xpath expr="//table[1]/thead/tr/th[1]" position="after">
+    <th>
+      <strong>Requested Date</strong>
+    </th>
+  </xpath>
+
+  <!--<xpath expr="//table[1]/thead/tr/th[1]" position="before"> <th><strong>Reference</strong></th> <th><strong>Product</strong></th> </xpath>-->
+
+  <xpath expr="//t[@t-as='l']/tr/td[1]" position="after">
+    <td><span t-field="l.x_requested_date"/></td>
+  </xpath>
+
+  <!--<xpath expr="//t[@t-as='l']/tr/td[1]" position="before"> <td><span t-field="l.x_reference"/></td> <td><span t-field="l.product_id.name"/></td> </xpath>-->
+
+</data>
