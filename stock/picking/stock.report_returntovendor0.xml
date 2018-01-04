@@ -57,13 +57,13 @@
           </div>
         </t>
         <div class="row" style="padding-left: 3em; ">
-          <span class="col-xs-4">
+          <span class="col-xs-3">
             <strong>Date:</strong>
             <t t-if="o.state == 'done'">
               <span t-field="o.date_done" t-field-options='{"format": "Y-MM-dd"}'/>
             </t>
           </span>
-          <span class="col-xs-4">
+          <span class="col-xs-5" t-if="o.origin">
             <strong>Source:</strong>
             <span t-field="o.origin" class="monospace"/>
           </span>
