@@ -9,16 +9,16 @@
             font-family: Menlo, Monaco, Consolas, "DejaVu Sans Mono", monospace !important;
           }
           .row {
-            min-height: 35px;
+            min-height: 34px;
             font-size: larger;
             padding-left: 3em;
           }
         </style>
         <div class="row">
-          <h4 t-field="o.name" class="monospace col-xs-3 pull-right" style="padding-top: 50px;"/>
+          <h4 t-field="o.name" class="monospace col-xs-3 pull-right" style="padding-top: 32px;"/>
         </div>
 
-        <div class="row" style="padding-left: 10em; padding-bottom: 72px; padding-top: 6px;">
+        <div class="row" style="padding-left: 10em; padding-bottom: 68px; padding-top: 6px;">
           <span class="monospace col-xs-4">
             <t t-if="o.partner_id">
               #<span t-field="o.partner_id.ref"/>
@@ -37,14 +37,14 @@
         </div>
 
         <t t-foreach="o.pack_operation_ids" t-as="pack_operation">
-          <div class="row" style="padding-right: 0.5em;">
+          <div class="row">
             <div class="col-xs-9">
               <t t-if="pack_operation.product_id.default_code">
                 [<span t-field="pack_operation.product_id.default_code" class="monospace"/>]
               </t>
               <span t-field="pack_operation.product_id.name"/>
             </div>
-            <div class="col-xs-3 text-right" t-if="pack_operation.state == 'done'">
+            <div class="col-xs-3 text-right" style="padding-right: 2.5em;" t-if="pack_operation.state == 'done'">
               <t t-if="pack_operation.ordered_qty != pack_operation.qty_done">
                 <t t-set="backorder" t-value="True"/>
               </t>

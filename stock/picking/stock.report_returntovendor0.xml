@@ -11,14 +11,15 @@
           .row {
             min-height: 2em;
             font-size: larger;
+            padding-left: 3em;
           }
         </style>
 
         <div class="row">
-          <h4 t-field="o.name" class="monospace col-xs-3 pull-right" style="padding-left: 3em; padding-top: 36px;"/>
+          <h4 t-field="o.name" class="monospace col-xs-3 pull-right" style="padding-top: 28px;"/>
         </div>
 
-        <div class="row" style="padding-left: 11em; padding-top: 0.5em; padding-bottom: 80px">
+        <div class="row" style="padding-left: 11em; padding-top: 0.5em; padding-bottom: 78px">
           <span class="monospace col-xs-3">
             <t t-if="o.partner_id">
               <span t-field="o.partner_id.ref"/>
@@ -33,12 +34,12 @@
 
         <t t-set="has_serial_number" t-value="o.pack_operation_ids.filtered('pack_lot_ids')" groups="stock.group_production_lot"/>
 
-        <div t-if="o.partner_id" class="row" style="padding-left: 3em;">
+        <div t-if="o.partner_id" class="row">
           <strong><span t-field="o.partner_id" class="col-xs-11"/></strong>
         </div>
 
         <t t-foreach="o.pack_operation_ids" t-as="pack_operation">
-          <div class="row" style="padding-left: 3em; padding-right: 0.5em;">
+          <div class="row">
             <div class="col-xs-9">
               <t t-if="pack_operation.product_id.default_code">
                 [<span t-field="pack_operation.product_id.default_code" class="monospace"/>]
@@ -46,7 +47,7 @@
               <span t-field="pack_operation.product_id.name"/>
             </div>
 
-            <div class="col-xs-3 text-right" t-if="pack_operation.state == 'done'">
+            <div class="col-xs-3 text-right" style="padding-right: 2.5em;" t-if="pack_operation.state == 'done'">
               <t t-if="pack_operation.ordered_qty != pack_operation.qty_done">
                 <t t-set="backorder" t-value="True"/>
               </t>
@@ -56,7 +57,8 @@
 
           </div>
         </t>
-        <div class="row" style="padding-left: 3em; ">
+
+        <div class="row">
           <span class="col-xs-3">
             <strong>Date:</strong>
             <t t-if="o.state == 'done'">

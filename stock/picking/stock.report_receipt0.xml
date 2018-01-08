@@ -8,13 +8,13 @@
             font-family: Menlo, Monaco, Consolas, "DejaVu Sans Mono", monospace !important;
           }
           .row {
-            min-height: 42px;
+            min-height: 40px;
             font-size: larger;
             padding-left: 2em;
           }
         </style>
         <div class="row">
-          <h4 t-field="o.name" class="monospace col-xs-3 pull-right" style="padding-top: 32px;"/>
+          <h4 t-field="o.name" class="monospace col-xs-3 pull-right" style="padding-top: 28px;"/>
         </div>
 
         <div class="row" style="padding-left: 8em; padding-bottom: 80px;">
@@ -39,7 +39,7 @@
 
         <t t-foreach="pack_operation_ids" t-as="pack_operation">
 
-          <div class="row" style="padding-right: 0.5em;">
+          <div class="row">
             <div class="col-xs-9">
               <t t-if="pack_operation.product_id.default_code">
                 [<span t-field="pack_operation.product_id.default_code" class="monospace"/>]
@@ -47,7 +47,7 @@
               <span t-field="pack_operation.product_id.name"/>
             </div>
 
-            <div class="col-xs-3 text-right" t-if="pack_operation.state == 'done'">
+            <div class="col-xs-3 text-right" style="padding-right: 2.5em;" t-if="pack_operation.state == 'done'">
               <t t-if="pack_operation.ordered_qty != pack_operation.qty_done">
                 <t t-set="backorder" t-value="True"/>
               </t>
