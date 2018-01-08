@@ -1,0 +1,4 @@
+<?xml version="1.0"?>
+<field name="account_id" position="before">
+  <field name="purchase_id"/>
+</field>
