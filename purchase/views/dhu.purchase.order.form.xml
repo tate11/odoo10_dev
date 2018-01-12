@@ -1,0 +1,9 @@
+<xpath expr="//field[@name='order_line']/tree/field[4]" position="after">
+
+  <field name="x_reference"/>
+
+  <field name="x_requested_date" widget="date"/>
+
+  <field name="x_original_requested_date"/>
+
+</xpath>
