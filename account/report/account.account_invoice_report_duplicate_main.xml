@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<t t-name="account.account_invoice_report_duplicate_main">
+  <t t-call="report.html_container">
+    <t t-foreach="docs" t-as="o">
+      <t t-call="account.account_invoice_report_duplicate" t-lang="o.partner_id.lang"/>
+    </t>
+  </t>
+</t>

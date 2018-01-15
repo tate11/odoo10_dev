@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<data inherit_id="account.report_invoice_document">
+  <xpath expr="//div[@name='reference']" position="after">
+    <div class="col-xs-2" t-if="o.incoterms_id" groups="sale.group_display_incoterm">
+      <strong>Incoterms:</strong>
+      <p t-field="o.incoterms_id.code"/>
+    </div>
+  </xpath>
+</data>

@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<t t-name="account.report_invoice">
+  <t t-call="report.html_container">
+    <t t-foreach="docs" t-as="o">
+      <t t-call="account.report_invoice_document" t-lang="o.partner_id.lang"/>
+    </t>
+  </t>
+</t>
