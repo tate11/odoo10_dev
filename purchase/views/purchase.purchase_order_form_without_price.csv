@@ -1,0 +1,31 @@
+id,inherit_id/id,model,priority,arch_base,name,type
+purchase.purchase_order_form_without_price,purchase.purchase_order_form,purchase.order,16,"<?xml version=""1.0""?>
+<data>
+  <field name=""account_analytic_id"" position=""attributes"">
+    <attribute name=""invisible"">1</attribute>
+  </field>
+
+  <field name=""analytic_tag_ids"" position=""attributes"">
+    <attribute name=""invisible"">1</attribute>
+  </field>
+
+  <field name=""price_unit"" position=""attributes"">
+    <attribute name=""invisible"">1</attribute>
+  </field>
+
+  <field name=""taxes_id"" position=""attributes"">
+    <attribute name=""invisible"">1</attribute>
+  </field>
+
+  <field name=""price_subtotal"" position=""attributes"">
+    <attribute name=""invisible"">1</attribute>
+  </field>
+
+  <group class=""oe_subtotal_footer oe_right"" position=""attributes"">
+    <attribute name=""invisible"">1</attribute>
+  </group>
+
+  <field name=""message_ids"" position=""attributes"">
+    <attribute name=""invisible"">1</attribute>
+  </field>
+</data>",purchase.order.form.without_price,Form
