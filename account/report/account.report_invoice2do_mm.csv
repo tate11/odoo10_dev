@@ -1,0 +1,11 @@
+id,key,model,priority,arch_base,name,type
+account.report_invoice2do_mm,account.report_invoice2do_mm,,16,"<?xml version=""1.0""?>
+<t t-name=""account.report_invoice2do_mm"">
+    <t t-call=""report.html_container"">
+        <t t-foreach=""docs"" t-as=""o"">
+            <t t-call=""account.report_invoice_document"" t-lang=""o.partner_id.lang""/>
+        </t>
+    </t>
+</t>
+
+",report_invoice2do_mm,QWeb
