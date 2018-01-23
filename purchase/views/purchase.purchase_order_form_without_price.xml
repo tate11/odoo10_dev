@@ -1,5 +1,9 @@
 <?xml version="1.0"?>
 <data>
+  <button name="action_view_invoice" position="attributes">
+    <attribute name="invisible">1</attribute>
+  </button>
+
   <field name="account_analytic_id" position="attributes">
     <attribute name="invisible">1</attribute>
   </field>
@@ -27,4 +31,8 @@
   <field name="message_ids" position="attributes">
     <attribute name="invisible">1</attribute>
   </field>
+
+  <xpath expr="//field[@name='order_line']/form" position="attributes">
+    <attribute name="invisible">1</attribute>
+  </xpath>
 </data>
