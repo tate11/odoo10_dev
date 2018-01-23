@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<group name="sale_shipping" position="inside">
+  <field name="requested_date"/>
+  <field name="commitment_date"/>
+  <field name="effective_date"/>
+</group>

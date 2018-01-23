@@ -1,0 +1,22 @@
+<data>
+  <!-- order line -->
+  <xpath expr="//notebook/page[1]/field[1]/tree[1]/field[1]" position="after">
+    <field name="x_reference"/>
+  </xpath>
+
+  <xpath expr="//notebook/page[1]/field[1]/tree[1]/field[@name='name']" position="after">
+    <field name="x_requested_date"/>
+    <field name="x_org_requested_date"/>
+  </xpath>
+
+  <!-- pop up window -->
+  <xpath expr="//notebook/page[1]/field[1]/form/group/group[1]/field[1]" position="before">
+    <field name="x_reference"/>
+  </xpath>
+
+  <xpath expr="//notebook/page[1]/field[1]/form/group/group[1]/field[2]" position="after">
+    <field name="x_requested_date"/>
+    <field name="x_org_requested_date"/>
+  </xpath>
+
+</data>

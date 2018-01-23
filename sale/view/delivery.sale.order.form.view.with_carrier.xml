@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<data>
+  <xpath expr="//field[@name='payment_term_id']" position="after">
+    <field name="id" invisible="1"/>
+    <label for="carrier_id"/>
+    <div name="carrier_selection">
+      <div>
+        <field name="carrier_id" context="{'order_id': id}" class="oe_inline" options="{'no_create': True, 'no_open': True}" attrs="{'readonly':[('state','not in',('draft','sent'))]}"/>
+      </div>
+      <div>
+        <field name="delivery_price" widget="monetary" class="oe_inline" options="{'currency_field': 'currency_id'}" nolabel="1" attrs="{'invisible': [('carrier_id','=', False)]}"/>
+        <button name="delivery_set" string="Set price" type="object" class="oe_inline fa fa-arrow-right oe_link" attrs="{'invisible':['|',('carrier_id','=',False),('state','not in',('draft','sent'))]}"/>
+      </div>
+    </div>
+  </xpath>
+  <xpath expr="//field[@name='product_uom_qty']" position="after">
+    <field name="product_qty" invisible="1"/>
+  </xpath>
+</data>
