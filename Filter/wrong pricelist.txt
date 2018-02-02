@@ -1,0 +1,11 @@
+[
+  u'|', u'|', u'|', u'|', u'|', u'|', u'|',
+  [u'partner_ref', u'ilike', u'DSO0326'],
+  [u'partner_ref', u'ilike', u'DSO0327'],
+  [u'partner_ref', u'ilike', u'DSO0328'],
+  [u'partner_ref', u'ilike', u'DSO0329'],
+  [u'partner_ref', u'ilike', u'DSO0330'],
+  [u'partner_ref', u'ilike', u'DSO0331'],
+  [u'partner_ref', u'ilike', u'DSO0333'],
+  [u'partner_ref', u'ilike', u'DSO0337'],
+]
