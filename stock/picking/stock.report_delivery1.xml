@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<t t-name="stock.report_delivery1">
+  <t t-foreach="docs" t-as="o">
+    <t t-call="report.html_container">
+      <t t-set="o" t-value="o.with_context({'lang':o.partner_id.lang})"/>
+      <div class="page">
+        <style>
+          .monospace {
+            font-family: Menlo, Monaco, Consolas, "DejaVu Sans Mono", monospace !important;
+          }
+          .row {
+            min-height: 34px;
+            font-size: larger;
+            padding-left: 1em;
+            padding-right: 2em;
+          }
+          .page-header {
+            padding-top: 1em;
+          }
+        </style>
+
+        <div class="page-header">
+          <h1>
+            <span class="pull-right small">东莞市德玛电子有限公司</span>
+            Delivery Order    [<span t-field="o.name" class="monospace small"/>]
+          </h1>
+        </div>
+
+        <t t-set="backorder" t-value="False"/>
+        <t t-set="has_serial_number" t-value="o.pack_operation_ids.filtered('pack_lot_ids')" groups="stock.group_production_lot"/>
+
+        <div t-if="o.partner_id" class="row">
+          <span class="pull-right" t-if="o.origin">
+            <strong>Source: </strong>
+            <span t-field="o.origin" class="monospace"/>
+          </span>
+          <strong>Partner: </strong><span t-field="o.partner_id"/>
+        </div>
+
+        <div class="row">
+          <span class="pull-right" t-if="o.backorder_id">
+            <strong>Backorder of: </strong>
+            <span class="monospace">
+              <t t-esc="o.backorder_id.name"/>
+            </span>
+          </span>
+          <strong>Date: </strong>
+          <t t-if="o.state == 'done'">
+            <span t-field="o.date_done" t-field-options='{"format": "Y-MM-dd"}'/>
+          </t>
+        </div>
+
+        <t t-foreach="o.pack_operation_ids" t-as="pack_operation">
+          <div class="row">
+            <div class="col-xs-9">
+              <t t-if="pack_operation.product_id.default_code">
+                [<span t-field="pack_operation.product_id.default_code" class="monospace"/>]
+              </t>
+              <span t-field="pack_operation.product_id.name"/>
+            </div>
+            <div class="col-xs-3 text-right" style="padding-right: 2.5em;" t-if="pack_operation.state == 'done'">
+              <t t-if="pack_operation.ordered_qty != pack_operation.qty_done">
+                <t t-set="backorder" t-value="True"/>
+              </t>
+              <span t-field="pack_operation.qty_done" class="monospace"/>
+              <span t-field="pack_operation.product_uom_id"/>
+            </div>
+          </div>
+        </t>
+
+        <p t-field="o.note"/>
+      </div>
+    </t>
+  </t>
+</t>
