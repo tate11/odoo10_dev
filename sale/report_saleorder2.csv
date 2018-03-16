@@ -1,0 +1,2 @@
+id,help,type,usage,auto,report_rml,model,name,multi,paperformat_id/id,parser,print_report_name,report_rml_content,report_rml_content_data,attachment_use,report_file,report_type,report_sxw_content_data,attachment,report_name,report_xml,report_xsl
+sale.report_sale_order2,,ir.actions.report.xml,,TRUE,sale.report_saleorder2,sale.order,Sale Order (2),FALSE,,,,,,FALSE,sale.report_saleorder2,PDF,,,sale.report_saleorder2,,

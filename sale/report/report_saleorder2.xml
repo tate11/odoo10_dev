@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<t t-name="sale.report_saleorder2">
+  <t t-call="report.html_container">
+    <t t-foreach="docs" t-as="doc">
+      <t t-call="sale.report_saleorder2_document" t-lang="doc.partner_id.lang"/></t>
+  </t>
+</t>
