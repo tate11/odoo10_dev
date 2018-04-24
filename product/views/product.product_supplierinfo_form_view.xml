@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<form string="Vendor Information">
+    <group>
+        <group string="Vendor">
+            <field name="name" context="{'default_customer': 0, 'search_default_supplier': 1, 'default_supplier': 1}"/>
+            <field name="product_name"/>
+            <field name="product_code"/>
+            <field name="product_id" domain="[('product_tmpl_id', '=', product_tmpl_id)]" invisible="1"/>
+            <label for="delay"/>
+            <div>
+                <field name="delay" class="oe_inline"/> days
+                            
+            </div>
+        </group>
+        <group string="Price List">
+            <field name="product_tmpl_id" string="Product" invisible="context.get('visible_product_tmpl_id', True)"/>
+            <label for="min_qty"/>
+            <div>
+                <field name="min_qty" class="oe_inline"/>
+                <field name="product_uom" class="oe_inline" groups="product.group_uom"/>
+            </div>
+            <label for="price"/>
+            <div>
+                <field name="price" class="oe_inline"/>
+                <field name="currency_id" class="oe_inline" groups="base.group_multi_currency"/>
+            </div>
+            <label for="date_start" string="Validity"/>
+            <div>
+                <field name="date_start" class="oe_inline"/> to 
+                <field name="date_end" class="oe_inline"/>
+            </div>
+        </group>
+        <group string="Other Information" groups="base.group_multi_company">
+            <field name="company_id" options="{'no_create': True}"/>
+        </group>
+    </group>
+</form>
+            

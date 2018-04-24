@@ -1,0 +1,5 @@
+<xpath expr="//field[@name='date_end']" position="after">
+    <field name="write_uid" readonly="True"/>
+    <field name="__last_update" readonly="True"/>
+    <field name="x_note"/>
+</xpath>

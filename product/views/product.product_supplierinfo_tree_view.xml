@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<tree string="Vendor Information">
+    <field name="sequence" widget="handle"/>
+    <field name="name"/>
+    <field name="product_tmpl_id" string="Product" invisible="context.get('visible_product_tmpl_id', True)"/>
+    <field name="min_qty"/>
+    <field name="price" string="Price"/>
+    <field name="date_start"/>
+    <field name="date_end"/>
+</tree>
